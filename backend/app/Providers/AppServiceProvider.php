@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Library\Services\SchoolDataService;
 use App\Repositories\SchoolRepository;
+use App\Repositories\SchoolStatsRepository;
+use App\SchoolStats;
 use Illuminate\Cache\CacheManager;
 use Illuminate\Support\ServiceProvider;
 
@@ -29,7 +31,12 @@ class AppServiceProvider extends ServiceProvider
         $url = config('schooldata.url');
         $ttl = config('schooldata.cachettl');
         $cache = new CacheManager(app());
-        $schoolRepository  = new SchoolRepository(new SchoolDataService($url), $cache, $ttl);
+
+        $schoolStatsRepository = new SchoolStatsRepository(new SchoolStats());
+
+        $schoolRepository = new SchoolRepository(new SchoolDataService($url), $schoolStatsRepository, $cache, $ttl);
+
+        // injecting the instance of SchoolRepository when SchoolRepositoryInterface is passed as parameter
         $this->app->instance('App\Repositories\SchoolRepositoryInterface', $schoolRepository);
     }
 }

@@ -2,13 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Library\Services\SchoolDataService;
-use App\Repositories\SchoolRepository;
 use App\Repositories\SchoolRepositoryInterface;
-use App\Respositories\SchoolStatsRepositoryInterface;
-use Illuminate\Cache\CacheManager;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cache;
 
 class HomeController extends Controller
 {
@@ -18,20 +12,14 @@ class HomeController extends Controller
     private $schoolRepository;
 
     /**
-     * @var SchoolStatsRepositoryInterface
-     */
-    private $schoolStatsRepository;
-    /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct(SchoolRepositoryInterface $schoolRepository,
-        SchoolStatsRepositoryInterface $schoolStatsRepository)
+    public function __construct(SchoolRepositoryInterface $schoolRepository)
     {
         $this->middleware('auth');
         $this->schoolRepository = $schoolRepository;
-        $this->schoolStatsRepository = $schoolStatsRepository;
     }
 
     /**
@@ -41,7 +29,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $this->schoolRepository->getData();
+        $data = $this->schoolRepository->getData();
         return view('home');
     }
 }

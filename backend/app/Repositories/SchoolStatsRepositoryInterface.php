@@ -1,9 +1,16 @@
 <?php
 
-namespace App\Respositories;
+namespace App\Repositories;
 
-
+/**
+ * Interface SchoolStatsRepositoryInterface
+ * @package App\Repositories
+ */
 interface SchoolStatsRepositoryInterface
 {
-    public function storeStats($numberOfSchools, $lastFetched);
+    /**
+     * @param $numberOfSchools
+     * @return mixed
+     */
+    public function storeStats($numberOfSchools);
 }

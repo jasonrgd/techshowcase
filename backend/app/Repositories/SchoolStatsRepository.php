@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\SchoolStats;
+use App\SchoolStat;
 
 /**
  * Class SchoolStatsRepository
@@ -12,15 +12,15 @@ class SchoolStatsRepository implements SchoolStatsRepositoryInterface
 {
 
     /**
-     * @var SchoolStats
+     * @var SchoolStat
      */
     private $schoolStats;
 
     /**
      * SchoolStatsRepository constructor.
-     * @param SchoolStats $schoolStats
+     * @param SchoolStat $schoolStats
      */
-    public function __construct(SchoolStats $schoolStats)
+    public function __construct(SchoolStat $schoolStats)
     {
         $this->schoolStats = $schoolStats;
     }
@@ -31,6 +31,9 @@ class SchoolStatsRepository implements SchoolStatsRepositoryInterface
      */
     public function storeStats($numberOfSchools) : bool
     {
+        // this can be stored in cache too but storing in database can have added value
+        // i.e if we will continuosly store stats from each fetch unlike updating 1st record
+
         if (count($this->schoolStats->all()) > 0) {
             return $this->schoolStats->update([
                 'number_of_schools' => $numberOfSchools,

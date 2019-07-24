@@ -5,7 +5,7 @@ namespace App\Providers;
 use App\Library\Services\SchoolDataService;
 use App\Repositories\SchoolRepository;
 use App\Repositories\SchoolStatsRepository;
-use App\SchoolStats;
+use App\SchoolStat;
 use Illuminate\Cache\CacheManager;
 use Illuminate\Support\ServiceProvider;
 
@@ -32,7 +32,7 @@ class AppServiceProvider extends ServiceProvider
         $ttl = config('schooldata.cachettl');
         $cache = new CacheManager(app());
 
-        $schoolStatsRepository = new SchoolStatsRepository(new SchoolStats());
+        $schoolStatsRepository = new SchoolStatsRepository(new SchoolStat());
 
         $schoolRepository = new SchoolRepository(new SchoolDataService($url), $schoolStatsRepository, $cache, $ttl);
 

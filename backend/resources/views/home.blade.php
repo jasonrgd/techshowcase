@@ -7,9 +7,10 @@
                 <div class="card">
                     <div class="card-header"> School Statistics</div>
                     <div class="card-body">
-                        <?php $timezone  = 10; ?>
+                        <?php $timezone = 10; ?>
                         <p>Number of Schools present in database: <?php echo $stats[0]->number_of_schools; ?> </p>
-                        <p>Last Updated : <?php echo date( "d M Y H:i:s" ,strtotime($stats[0]->updated_at) + 3600*($timezone)); ?>  </p>
+                        <p>Last Updated : <?php echo date("d M Y H:i:s",
+                                strtotime($stats[0]->updated_at) + 3600 * ($timezone)); ?>  </p>
                     </div>
                 </div>
                 <div class="card">
@@ -28,21 +29,15 @@
                                 <tr>
                                     <th scope="col"> School Code</th>
                                     <th scope="col"> School Name</th>
-                                    <th scope="col"> 2004</th>
-                                    <th scope="col"> 2005</th>
-                                    <th scope="col"> 2006</th>
-                                    <th scope="col"> 2007</th>
-                                    <th scope="col"> 2008</th>
-                                    <th scope="col"> 2009</th>
-                                    <th scope="col"> 2010</th>
-                                    <th scope="col"> 2011</th>
-                                    <th scope="col"> 2012</th>
-                                    <th scope="col"> 2013</th>
-                                    <th scope="col"> 2014</th>
-                                    <th scope="col"> 2015</th>
-                                    <th scope="col"> 2016</th>
-                                    <th scope="col"> 2017</th>
-                                    <th scope="col"> 2018</th>
+
+                                    <?php
+                                    foreach (config('schooldata.years') as $year) {
+                                    ?>
+                                    <th scope="col"> <?php echo $year; ?></th>
+
+                                    <?php
+                                    }
+                                    ?>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -52,21 +47,15 @@
                                 <tr>
                                     <th scope="row"> <?php echo $school['School Code']; ?> </th>
                                     <td> <?php echo $school['School Name']; ?> </td>
-                                    <td> <?php echo $school['HC_2004']; ?> </td>
-                                    <td> <?php echo $school['HC_2005']; ?> </td>
-                                    <td> <?php echo $school['HC_2006']; ?> </td>
-                                    <td> <?php echo $school['HC_2007']; ?> </td>
-                                    <td> <?php echo $school['HC_2008']; ?> </td>
-                                    <td> <?php echo $school['HC_2009']; ?> </td>
-                                    <td> <?php echo $school['HC_2010']; ?> </td>
-                                    <td> <?php echo $school['HC_2011']; ?> </td>
-                                    <td> <?php echo $school['HC_2012']; ?> </td>
-                                    <td> <?php echo $school['HC_2013']; ?> </td>
-                                    <td> <?php echo $school['HC_2014']; ?> </td>
-                                    <td> <?php echo $school['HC_2015']; ?> </td>
-                                    <td> <?php echo $school['HC_2016']; ?> </td>
-                                    <td> <?php echo $school['HC_2017']; ?> </td>
-                                    <td> <?php echo $school['HC_2018']; ?> </td>
+
+                                    <?php
+                                    foreach (config('schooldata.years') as $year) {
+                                    ?>
+                                    <th scope="col"> <?php echo $school['HC_'.$year];; ?></th>
+
+                                    <?php
+                                    }
+                                    ?>
                                 </tr>
                                 <?php
                                 }

@@ -29,7 +29,7 @@ class SchoolStatsRepository implements SchoolStatsRepositoryInterface
      * @param $numberOfSchools
      * @return bool
      */
-    public function storeStats($numberOfSchools) : bool
+    public function storeStats($numberOfSchools): bool
     {
         // this can be stored in cache too but storing in database can have added value
         // i.e if we will continuosly store stats from each fetch unlike updating 1st record

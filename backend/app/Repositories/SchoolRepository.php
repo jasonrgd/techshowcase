@@ -64,7 +64,5 @@ class SchoolRepository implements SchoolRepositoryInterface
         }
 
         return $data;
-
-
     }
 }

@@ -14,6 +14,7 @@
 ## How to run code
 * paste .env file provided into backend/ folder
 * run docker-compose up -d --build 
+* run composer install (docker exec -it techshowcase_php-fpm_1 php composer.phar install)
 * goto localhost:8321 in your browser
 * login using  u - jason.rgd@gmail.com p - testtest
 

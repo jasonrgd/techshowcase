@@ -10,7 +10,7 @@ interface SchoolStatsRepositoryInterface
 {
     /**
      * @param $numberOfSchools
-     * @return mixed
+     * @return bool
      */
-    public function storeStats($numberOfSchools);
+    public function storeStats($numberOfSchools): bool;
 }

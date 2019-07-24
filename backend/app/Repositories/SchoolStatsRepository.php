@@ -35,9 +35,9 @@ class SchoolStatsRepository implements SchoolStatsRepositoryInterface
         // i.e if we will continuosly store stats from each fetch unlike updating 1st record
 
         if (count($this->schoolStats->all()) > 0) {
-            return $this->schoolStats->update([
+            return $this->schoolStats->find(1)->update([
                 'number_of_schools' => $numberOfSchools,
-                'id' => 1
+                'updated_at' => date("Y-m-d H:i:s")
             ]);
         } else {
             $this->schoolStats->number_of_schools = $numberOfSchools;

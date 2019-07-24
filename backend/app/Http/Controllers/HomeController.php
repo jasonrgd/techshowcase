@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Repositories\SchoolRepositoryInterface;
+use App\SchoolStat;
 
 class HomeController extends Controller
 {
@@ -29,7 +30,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $data = $this->schoolRepository->getData();
-        return view('home');
+        $schools = $this->schoolRepository->getData();
+        $stats = SchoolStat::all();
+        return view('home', ['schools' => $schools, 'stats' => $stats]);
     }
 }

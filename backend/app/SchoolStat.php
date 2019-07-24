@@ -12,6 +12,6 @@ class SchoolStat extends Model
      * @var array
      */
     protected $fillable = [
-        'number_of_schools',
+        'number_of_schools', 'updated_at'
     ];
 }

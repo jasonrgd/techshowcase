@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Respositories;
+namespace App\Repositories;
 
 use App\Library\Services\SchoolDataServiceInterface;
 use Illuminate\Cache\CacheManager;
 
 
 /**
- * Class SchoolRespository
- * @package App\Respositories
+ * Class SchoolRepository
+ * @package App\Repositories
  */
-class SchoolRespository implements SchoolRespositoryInterface
+class SchoolRepository implements SchoolRepositoryInterface
 {
 
     /**

@@ -1,12 +1,15 @@
 <?php
-/**
- * Created by IntelliJ IDEA.
- * User: jason_dsouza
- * Date: 25/7/19
- * Time: 3:47 AM
- */
 
+namespace App\Library\Services;
+
+/**
+ * Interface SchoolDataServiceInterface
+ * @package App\Library\Services
+ */
 interface SchoolDataServiceInterface
 {
-
+    /**
+     * @return array
+     */
+    public function fetchData();
 }

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Respositories;
+namespace App\Repositories;
 
 /**
- * Interface SchoolRespositoryInterface
- * @package App\Respositories
+ * Interface SchoolRepositoryInterface
+ * @package App\Repositories
  */
 interface SchoolRepositoryInterface
 {

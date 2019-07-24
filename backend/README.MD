@@ -32,3 +32,4 @@
   where the data collection retrieves more data after every fixed interval = ttl and we store these new statistic in database so we know variance in data over time.
   Obviously logic of updating the same record would then have to be changed which can be easily changed in SchoolStatsRepository
 * I have mainly tried to demonstrate a 12 factor style app, proper documentation, tests, seperation of concerns, use of docker
+* Data structure returned from external website won't change

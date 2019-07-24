@@ -17,6 +17,12 @@
 * goto localhost:8321 in your browser
 * login using  u - jason.rgd@gmail.com p - testtest
 
+## Where to find my code 
+* backend/tests/
+* backend/app/Repositories
+* backend/app/Library
+* backend/app/Controllers/HomeController
+* backend/app/Providers/AppServiceProvider
 
 ## Assumptions
 
